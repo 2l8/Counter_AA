@@ -6,5 +6,7 @@
     <item
         android:id="@+id/mi_graph_Energy"
         android:title="Энергия"/>
-
+    <item
+        android:id="@+id/mi_graph_DurtyData"
+        android:title="Исходные данные"/>
 </menu>

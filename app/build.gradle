@@ -29,6 +29,7 @@ dependencies {
     apt 'org.androidannotations:androidannotations:3.2'
     compile 'org.androidannotations:androidannotations-api:3.2'
     compile files('/home/user/AndroidStudioProjects/Proj017_ElMeter/Counter_AA/libs/GraphView-4.0.1.jar')
+    compile files('/home/user/AndroidStudioProjects/Counter_AA/libs/GraphView-4.0.1.jar')
 }
 
 

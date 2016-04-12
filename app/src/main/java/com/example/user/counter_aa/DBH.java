@@ -133,6 +133,20 @@ public class DBH extends SQLiteOpenHelper {
         this.getWritableDatabase().execSQL(sql_CREATE_TABLE);
     }
 
+    public void setTickCount(int count){
+
+    }
+
+    public int getTickCount(){
+        return 200;
+    }
 
 
+    public void setFlashCount(int count){
+
+    }
+
+    public int getFlashCount(){
+        return 3200;
+    }
 }

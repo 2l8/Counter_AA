@@ -4,5 +4,6 @@
     <string name="stop">Стоп</string>
     <string name="graphLabelPower">График мощности [кВт]</string>
     <string name="graphLabelEnergy">График электроэнергии [кВтч]</string>
+    <string name="graphLabelDurty">График громкости щелчков</string>
 
 </resources>

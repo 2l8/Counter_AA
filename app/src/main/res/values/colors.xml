@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="EnergyLine">#FF0000FF</color>
+    <color name="PowerLine">#FFFF0000</color>
+    <color name="DurtyLine">#FF88FF88</color>
 </resources>

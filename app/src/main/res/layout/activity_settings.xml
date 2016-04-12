@@ -68,7 +68,7 @@
             android:text="3200"/>
     </LinearLayout>
     <Button
-        android:id="@+id/AcceptSettings"
+        android:id="@+id/btnSaveSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Сохранить"
