@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="settings" />
+
+    <Button
+        android:id="@+id/btnDropTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DROP"
+        />
+    <Button
+        android:id="@+id/btnDeleteRecords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE"
+        />
+    <Button
+        android:id="@+id/btnCreateTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Table"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txtTickCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Количество щелчков на 1 кВтч"/>
+        <EditText
+            android:id="@+id/edTickCount"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Сколко раз щекает механизм счетчика при 1 кВтч"
+            android:text="200"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txtFlashCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Количество вспышек на 1 кВтч"/>
+        <EditText
+            android:id="@+id/edFlashCount"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Сколко раз моргает лампа при 1 кВтч"
+            android:text="3200"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/AcceptSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сохранить"
+        />
+
+
+
+</LinearLayout>
