@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Counter_AA</string>
+    <string name="start">Старт</string>
+    <string name="stop">Стоп</string>
+    <string name="graphLabelPower">График мощности [кВт]</string>
+    <string name="graphLabelEnergy">График электроэнергии [кВтч]</string>
+
+</resources>
