@@ -1,6 +1,7 @@
 package com.example.user.counter_aa;
 
 import android.app.Application;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.test.ApplicationTestCase;
 
 /**
@@ -10,4 +11,11 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
         super(Application.class);
     }
+
+    public void DBHisNotNull(){
+        DBH dbh = null;
+        if (dbh==null) dbh = new DBH(this.getContext());
+        assertNotNull(dbh);
+    }
+
 }

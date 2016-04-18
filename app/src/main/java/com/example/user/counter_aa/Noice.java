@@ -34,7 +34,6 @@ public class Noice extends Activity implements NoiceMeter.NoiceMeterListener {
     }
 
 
-
     @Click(R.id.btnNmStartStop)
     void btnNmStartStopClick(){
         if(btnNmStartStop.getText().toString()==getText(R.string.start)){
@@ -51,8 +50,9 @@ public class Noice extends Activity implements NoiceMeter.NoiceMeterListener {
 
     @Override
     public void onImpuls(final int amplitude) {
-
-        if ((amplitude>1000)&(amplitude<25000))
+        int minAmpl = 1000;
+        int maxAmpl = 25000; //выше - ошибка
+        if ((amplitude>minAmpl)&&(amplitude<maxAmpl))
             dbh.impuls(amplitude);
 
         txtNmValue.post(new Runnable() {

@@ -42,14 +42,13 @@ public class Graph extends Activity{
     private final int GRAPH_DURTY = 1203;
 
     @InstanceState
-    int GraphState=1301;
+    int GraphState=1201;
 
     @ViewById(R.id.txtGraphLabel)
     TextView txtGraphLabel;
 
     @AfterViews
     void init(){
-
         if (db==null) db = new DBH(this);
 
         graphView = new GraphView(this);
@@ -71,6 +70,7 @@ public class Graph extends Activity{
 
     }
 
+    //Процедура по расчету данных и построению графика мощности потребления ЭЭ
     @OptionsItem(R.id.mi_graph_Power)
     void showPowerGraph() {
         GraphState = GRAPH_POWER;
@@ -81,20 +81,21 @@ public class Graph extends Activity{
             Toast.makeText(this, "Нет данных", Toast.LENGTH_SHORT).show();
     }
 
+
+    //Процедура по расчету данных и построению графика потребления ЭЭ
     @OptionsItem(R.id.mi_graph_Energy)
     void showEnergyGraph() {
         GraphState = GRAPH_ENERGY;
-
         txtGraphLabel.setText(getText(R.string.graphLabelEnergy));
-
         if (calcEnergy())
-        //    draw(R.color.EnergyLine);
+            //    draw(R.color.EnergyLine);
             draw(TYPE_LINE, Color.RED);
         else
             Toast.makeText(this, "Нет данных", Toast.LENGTH_SHORT).show();
 
     }
 
+    //Грязные данные измерений
     @OptionsItem(R.id.mi_graph_DurtyData)
     void showDurtyDataGraph() {
         GraphState = GRAPH_DURTY;
@@ -104,7 +105,7 @@ public class Graph extends Activity{
         if (calcDurtyData()){
 //            draw(R.color.DurtyLine);
             draw(TYPE_BAR, Color.GREEN);
-            drawFilter(1500, Color.YELLOW);
+            drawFilter(1500, Color.YELLOW);   //TODO дописать получение значения фильтра через настройки
         }
         else
             Toast.makeText(this, "Нет данных", Toast.LENGTH_SHORT).show();
@@ -114,12 +115,12 @@ public class Graph extends Activity{
     //Расчет мощности потребления по имеющимся данным
     public boolean calcPower() {
         long minDT = db.getMinDT();
-        long maxDT = db.getMaxDT();
+        //long maxDT = db.getMaxDT();
         int tickCount = db.getTickCount();
         double prev_x = 0;
         double prev_y = 0;
         //double impPower = 3200.0/3600; // 1кВтч/3200 импульсов
-        double impPower = 100.0/1; // 100/1кВтч/ импульсов
+        //double impPower = 100.0/1; // 100/1кВтч/ импульсов
 
         Cursor cursor = db.getReadableDatabase().rawQuery("Select dtl from impuls order by dtl asc;", null);
         if (!cursor.moveToFirst())
@@ -144,16 +145,16 @@ public class Graph extends Activity{
     //Расчет количества потребленной ЭЭ за время измерений
     public boolean calcEnergy() {
         long minDT = db.getMinDT();
-        long maxDT = db.getMaxDT();
+        //long maxDT = db.getMaxDT();
         int tickCount = db.getTickCount();
         double prev_x = 0;
         double prev_y = 0;
         //double impPower = 3200.0/3600; // 1кВтч/3200 импульсов
-        double impPower = 100.0/1; // 100/1кВтч/ импульсов
+        //double impPower = 100.0/1; // 100/1кВтч/ импульсов
 
         Cursor cursor = db.getReadableDatabase().rawQuery("Select "+db.KEY_DTL
-                                                        +" from "+db.TABLE_NAME
-                                                        +" order by "+db.KEY_DTL+" asc;", null);
+                +" from "+db.TABLE_NAME
+                +" order by "+db.KEY_DTL+" asc;", null);
         if (!cursor.moveToFirst())
             return false;
 
@@ -207,7 +208,6 @@ public class Graph extends Activity{
             graphView.getViewport().setScalable(true);
             graphView.removeAllSeries();
 
-
             if (GraphType == TYPE_BAR) {
                 BarGraphSeries<DataPoint> series = new BarGraphSeries<>(this.data);
                 series.setColor(color);
@@ -230,6 +230,7 @@ public class Graph extends Activity{
         return true;
     }
 
+    //функция добавления линии фильтра к графику данных
     boolean drawFilter(int value, int color){
         try
         {
@@ -246,8 +247,8 @@ public class Graph extends Activity{
             series.setColor(color);
             graphView.addSeries(series);
 
-      }
-        catch (Exception e){return false;}
+        }
+        catch (Exception e){return false;} //TODO Разбиль на разные варианты ошибок
 
         return true;
     }
